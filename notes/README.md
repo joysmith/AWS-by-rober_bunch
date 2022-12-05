@@ -200,6 +200,9 @@ How to use [request module ](https://www.npmjs.com/package/request) ?
 9. run cmd for generating new virtual host
 
 ```
+
+  sudo certbot --apache
+                  OR
   sudo certbot --authenticator standalone --installer apache -d joisland.com --pre-hook "systemctl stop apache2" --post-hook "systemctl start apache2"
 ```
 
