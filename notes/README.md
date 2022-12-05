@@ -145,6 +145,28 @@ How to use [request module ](https://www.npmjs.com/package/request) ?
 </VirtualHost>
 ```
 
+- Exp:
+
+```
+++++  listening on port 80  ++++
+<VirtualHost *:80>
+
+++++ we are telling apache If someone shows up looking up for this url ++++
+  ServerName joisland.com
+  DocumentRoot /var/www/joisland
+
+++++  I want apache u to look here in this directory  ++++
+  <Directory "/var/www/joisland">
+
++++ The rest are apache cmd handle by apache +++
+    allow from all
+    AllowOverride All
+    Order allow,deny
+    Options +Indexes
+  </Directory>
+</VirtualHost>
+```
+
 5. go to this location " /var/www " then,
 
 - " sudo mv html joisland "
@@ -175,7 +197,7 @@ How to use [request module ](https://www.npmjs.com/package/request) ?
 
 - <img src="image%20notes/6%20new%20inbound%20rule%20for%20https%20trafic.png" width="700">
 
-9. run cmd for generating certificate
+9. run cmd for generating new virtual host
 
 ```
   sudo certbot --authenticator standalone --installer apache -d joisland.com --pre-hook "systemctl stop apache2" --post-hook "systemctl start apache2"
