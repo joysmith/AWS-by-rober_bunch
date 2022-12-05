@@ -94,6 +94,92 @@ How to use [request module ](https://www.npmjs.com/package/request) ?
 - the html there after the git link is telling create a html-director
 - and inside of that html-derector paste the project file
 
+6. Optional:
+
+- where is git binary located
+
+```
+  which git
+```
+
+- which git version is installed in ubuntu server
+
+```
+  git --version
+```
+
+# HTTPS and a VirtualHost
+
+1. run the following cmds
+
+```
+  sudo snap install core; sudo snap refresh core
+  sudo snap install --classic certbot
+  sudo ln -s /snap/bin/certbot /usr/bin/certbot
+```
+
+2. go to this dir " /etc/apache2/sites-availabe "
+
+```
+  cd /etc/apache2/sites-availabe
+```
+
+3. create virtual host
+
+```
+  sudo nano joisland.com.conf
+```
+
+4. write these line in joisland.com.conf file
+
+```
+<VirtualHost *:80>
+  ServerName joisland.com
+  DocumentRoot /var/www/joisland
+  <Directory "/var/www/joisland">
+    allow from all
+    AllowOverride All
+    Order allow,deny
+    Options +Indexes
+  </Directory>
+</VirtualHost>
+```
+
+5. go to this location " /var/www " then, move html-dir inside joisland-dir by running cmd
+
+```
+  cd /var/www
+  ls
+  sudo mv html joisland
+  ls
+```
+
+6. go to this dir " /etc/apache2/sites-availabe "
+
+```
+  cd /etc/apache2/sites-availabe
+  ls
+```
+
+7. enabling the site
+
+```
+  sudo a2ensite joisland.com.conf
+  sudo service apache2 reload
+```
+
+8. Add new inbound rule for https traffic in ubuntu aws
+
+- <img src="image%20notes/6%20new%20inbound%20rule%20for%20https%20trafic.png" width="700">
+
+9. run cmd for generating certificate
+
+```
+  sudo certbot --authenticator standalone --installer apache -d joisland.com --pre-hook "systemctl stop apache2" --post-hook "systemctl start apache2"
+```
+
+9.
+
 # Notes
 
 1. What is web server
