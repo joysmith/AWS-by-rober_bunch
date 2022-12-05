@@ -59,6 +59,8 @@ How to use [request module ](https://www.npmjs.com/package/request) ?
 
 # Getting a project from git to ubuntu server
 
+- <img src="image%20notes/3%20git%20project.png" width="700">
+
 1. go to this location /var/www
 
 ```
