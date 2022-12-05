@@ -57,6 +57,41 @@ How to use [request module ](https://www.npmjs.com/package/request) ?
   ls -l
 ```
 
+# Getting a project from git to ubuntu server
+
+1. go to this location /var/www
+
+```
+  cd /var/www
+  pwd
+  ls
+```
+
+2. remove the html directory
+
+```
+  sudo rm -r html/
+  ls
+```
+
+3. copy the project link from git
+
+```
+  https://github.com/robertbunch/jquery-todo.git
+```
+
+4. run the cmd to copy project from git to ubuntu server
+
+```
+  sudo git clone https://github.com/robertbunch/jquery-todo.git html
+```
+
+5. Disection of cmd " sudo git clone https://github.com/robertbunch/jquery-todo.git html "
+
+- sudo git clone https://github.com/robertbunch/jquery-todo.git 👉html
+- the html there after the git link is telling create a html-director
+- and inside of that html-derector paste the project file
+
 # Notes
 
 1. What is web server
