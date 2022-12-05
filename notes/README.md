@@ -69,7 +69,7 @@ How to use [request module ](https://www.npmjs.com/package/request) ?
   ls
 ```
 
-2. remove the html directory
+2. remove the html-directory
 
 ```
   sudo rm -r html/
@@ -91,8 +91,8 @@ How to use [request module ](https://www.npmjs.com/package/request) ?
 5. Disection of cmd " sudo git clone https://github.com/robertbunch/jquery-todo.git html "
 
 - sudo git clone https://github.com/robertbunch/jquery-todo.git 👉html
-- the html there after the git link is telling create a html-director
-- and inside of that html-derector paste the project file
+- the html there after the git link is telling create a html-directory
+- and inside of that html-directory paste the project file
 
 6. Optional:
 
@@ -108,7 +108,7 @@ How to use [request module ](https://www.npmjs.com/package/request) ?
   git --version
 ```
 
-# HTTPS and a VirtualHost
+# Generating HTTPS certificate and a VirtualHost
 
 1. run the following cmds
 
@@ -145,7 +145,10 @@ How to use [request module ](https://www.npmjs.com/package/request) ?
 </VirtualHost>
 ```
 
-5. go to this location " /var/www " then, move html-dir inside joisland-dir by running cmd
+5. go to this location " /var/www " then,
+
+- " sudo mv html joisland "
+- Exp: move all files inside html-dir to joisland-dir
 
 ```
   cd /var/www
