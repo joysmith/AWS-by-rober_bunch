@@ -157,105 +157,62 @@
 
 - <img src="image%20notes/3%20click%20okay.png" width="700">
 
-# Generating HTTPS certificate and a VirtualHost
-
-1. run the following cmds
-
-```
-  sudo snap install core; sudo snap refresh core
-  sudo snap install --classic certbot
-  sudo ln -s /snap/bin/certbot /usr/bin/certbot
-```
-
-2. go to this dir " /etc/apache2/sites-availabe "
+4. To allow user ec2-user (Amazon AWS) write access to the public web directory (/var/www/reactAppName),
+   enter this command via Putty or Terminal, as the root user sudo
 
 ```
-  cd /etc/apache2/sites-availabe
+sudo chown -R ec2-user /var/www/reactAppName
+sudo chmod -R 755 /var/www/reactAppName
 ```
 
-3. create virtual host
+5. go to /var/www/reactAppName and tranfer react build folder here
 
-```
-  sudo nano joisland.com.conf
-```
+# Setting up VirtualHost
 
-4. write these line in joisland.com.conf file
-
-```
-<VirtualHost *:80>
-  ServerName joisland.com
-  DocumentRoot /var/www/joisland
-  <Directory "/var/www/joisland">
-    allow from all
-    AllowOverride All
-    Order allow,deny
-    Options +Indexes
-  </Directory>
-</VirtualHost>
-```
-
-- Exp:
-
-```
-++++  listening on port 80  ++++
-<VirtualHost *:80>
-
-++++ we are telling apache If someone shows up looking up for this url ++++
-  ServerName joisland.com
-  DocumentRoot /var/www/joisland
-
-++++  I want apache u to look here in this directory  ++++
-  <Directory "/var/www/joisland">
-
-+++ The rest are apache cmd handle by apache +++
-    allow from all
-    AllowOverride All
-    Order allow,deny
-    Options +Indexes
-  </Directory>
-</VirtualHost>
-```
-
-5. go to this location " /var/www " then,
-
-- " sudo mv html joisland "
-- Exp: move all files inside html-dir to joisland-dir
-
-```
-  cd /var/www
-  ls
-  sudo mv html joisland
-  ls
-```
-
-6. go to this dir " /etc/apache2/sites-availabe "
+1. go to this dir " /etc/apache2/sites-availabe "
 
 ```
   cd /etc/apache2/sites-availabe
-  ls
 ```
 
-7. enabling the site
+2. create virtual host
 
 ```
-  sudo a2ensite joisland.com.conf
+  sudo nano todo.joisland.com.conf
+```
+
+3. write these line in todo.joisland.com.conf file
+
+```
+<VirtualHost *:80>
+    DocumentRoot /var/www/reactAppName/build
+    ServerName todo.joisland.com
+    <Directory "/var/www/reactAppName/build">
+        allow from all
+        AllowOverride All
+        Order allow,deny
+        Options +Indexes
+    </Directory>
+</VirtualHost>
+```
+
+4. enabling the site in this folder: /etc/apache2/sites-availabe
+
+```
+  sudo a2ensite todo.joisland.com.conf
   sudo service apache2 reload
 ```
 
-8. Add new inbound rule for https traffic in ubuntu aws
-
-- <img src="image%20notes/6%20new%20inbound%20rule%20for%20https%20trafic.png" width="700">
-
-9. run cmd for generating new virtual host
+5. run the certbot instruction in this folder: /etc/apache2/sites-availabe
 
 ```
-
+  sudo apt-get update
+  sudo apt-get install software-properties-common
+  sudo add-apt-repository ppa:certbot/certbot
+  sudo apt-get update
+  sudo apt-get install python-certbot-apache
   sudo certbot --apache
-                  OR
-  sudo certbot --authenticator standalone --installer apache -d joisland.com --pre-hook "systemctl stop apache2" --post-hook "systemctl start apache2"
 ```
-
-9.
 
 # Notes
 
