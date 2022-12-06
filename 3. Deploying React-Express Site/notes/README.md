@@ -11,11 +11,11 @@
 
 2. update the ubuntu server
 
-3. Update A record on go daddy they act as subdomain
-
 ```
   sudo apt update
 ```
+
+3. Update A record on go daddy they act as subdomain
 
 4. upgrade the ubuntu server
 
@@ -46,7 +46,7 @@
   sudo apt install npm
 ```
 
-# Getting a project from git to ubuntu server
+# Getting a project from github to ubuntu server
 
 1. go to this location /var/www
 
@@ -63,13 +63,13 @@
   ls
 ```
 
-3. copy the project [link from git ](https://github.com/robertbunch/todo-react-express) ?
+3. copy the project link from git
 
 ```
   https://github.com/robertbunch/todo-react-express.git
 ```
 
-4. run the cmd to copy project from git to ubuntu server
+4. run the cmd to copy project from git on ubuntu server
 
 ```
   sudo git clone https://github.com/robertbunch/todo-react-express.git
@@ -138,7 +138,7 @@
 
 8. config
 
-# Transfer react build folder using filezila-clent
+# FRONT END: Transfer react build folder using filezila-clent
 
 1. Open file zila
 
@@ -166,6 +166,8 @@ sudo chmod -R 755 /var/www/reactAppName
 ```
 
 5. go to /var/www/reactAppName and tranfer react build folder here
+
+- <img src="image%20notes/4%20transfer.png" width="700">
 
 # Setting up VirtualHost
 
