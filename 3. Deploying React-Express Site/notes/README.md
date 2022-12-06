@@ -5,7 +5,7 @@
 
 # Project setup
 
-- Docx [steps ](https://github.com/robertbunch/todo-react-express) ?
+- Docx [steps ](https://github.com/robertbunch/todo-react-express)
 
 1. Create Ubuntu server instance on AWS
 
@@ -137,6 +137,25 @@
 ```
 
 8. config
+
+# Transfer react build folder using filezila-clent
+
+1. Open file zila
+
+- <img src="image%20notes/1%20site%20manager.png" width="700">
+
+2. Fill connection details
+
+- <img src="image%20notes/2%20fill%20detail.png" width="700">
+- Host: paste public ip from aws server
+- Protocol: SFTP
+- Logon Type: key file
+- User: ubuntu
+- key file: Browse from location
+
+3. click okay
+
+- <img src="image%20notes/3%20click%20okay.png" width="700">
 
 # Generating HTTPS certificate and a VirtualHost
 
