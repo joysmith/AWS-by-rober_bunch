@@ -138,7 +138,19 @@
 
 8. config
 
-# FRONT END: Transfer react build folder using filezila-clent
+# FRONT END:
+
+1. Open project folder
+
+2. run cmd to build static app
+
+```
+  npm run build
+```
+
+-Note: everytime we update the front-end we have to regenerate build-folder
+
+# Transfer react build folder using filezila-clent
 
 1. Open file zila
 
@@ -217,16 +229,3 @@ sudo chmod -R 755 /var/www/reactAppName
 ```
 
 # Notes
-
-1. What is web server
-
-- 1. Case: It means actual computer hardware in India
-- 2. Case: A piece of software that sole job is to handle and manage http traffic
-- 3. A system integrated lots of diff. networking piece moving
-
-2. Ports conventions
-
-- 1. port 80 for http traffic
-- 2. port 20 for ssh traffic
-- 3. port 443 for https traffic
-- 4. Open network ports: can be use for any general purpose 8000, 3000, 8080, etc
